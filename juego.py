@@ -130,4 +130,4 @@ def validarJuego():
 menu()
 jugar("x")
 #validarJuego()
-
+# Jhhon
