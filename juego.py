@@ -6,8 +6,6 @@ windows=pygame
 pygame.init()
 pantalla=pygame.display.set_mode((800,475))
 
-
-
 Blanco=(255,255,255)
 Rojo=(0,0,255)
 Amarillo=(255,255,0)
@@ -15,18 +13,14 @@ Azul=(0,255,0)
 
 TrikiTriki=np.zeros((3,3))
 
-
-
-
-
 def inicio():
-    presentar=pygame.image.load("parte3\Triki-Triki\Imagenes/Inicio.png")
+    presentar=pygame.image.load('D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/Inicio.png')
     pantalla.blit(presentar,(0,0))
     pygame.display.update()
     time.sleep(5)
 
 def menu():
-    menu=pygame.image.load("parte3/Triki-Triki/Imagenes/Menu.png")
+    menu=pygame.image.load("D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/Menu.png")
     pantalla.blit(menu,(0,0))
     pygame.display.update()
     while True:
@@ -46,13 +40,12 @@ def menu():
                 if (x>=84 and y>= 356 and x<=351 and y<=414):
                     print("quit")
                     exit()
+                    
         pantalla.blit(menu,(0,0))
         pygame.display.update()
 
-#inicio()
-
 def jugar(turno):
-    jugar=pygame.image.load("parte3\Triki-Triki\Imagenes/Game.png")
+    jugar=pygame.image.load("D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/Game.png")
     pantalla.blit(jugar,(0,0))
     pygame.display.update() 
     while(True):
@@ -88,12 +81,12 @@ def marcar(ini,turno,pos):
         if(turno == "x"):
             TrikiTriki[pos[0]][pos[1]]=1
             print(TrikiTriki)
-            marca=pygame.image.load("parte3\Triki-Triki\Imagenes/equis.png")
+            marca=pygame.image.load("D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/equis.png")
             turno="o"
         elif(turno=="o"):
             TrikiTriki[pos[0]][pos[1]]=2
             print(TrikiTriki)
-            marca=pygame.image.load("parte3\Triki-Triki\Imagenes/circulo.png")
+            marca=pygame.image.load("D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/circulo.png")
             turno="x"
         pantalla.blit(marca,(ini[0],ini[1]))
         pygame.display.update()
@@ -116,18 +109,19 @@ def validarJuego():
         if(TrikiTriki[0][j]==1):
             Lado+=1
             print("x= ",Lado)
-        elif(TrikiTriki[1][j]==1):
+    '''    elif(TrikiTriki[1][j]==1):
             Lado+=1 
             print("x= ",Lado)
         elif(TrikiTriki[2][j]==1):
             Lado+=1    
-            print("x= ",Lado)
+            print("x= ",Lado) '''
     if(Lado==3):
             print("gano")
             Lado=0
               
-    
+inicio()   
 menu()
-jugar("x")
+#jugar("x")
 #validarJuego()
-# Jhhon
+
+
