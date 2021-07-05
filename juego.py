@@ -14,13 +14,13 @@ Azul=(0,255,0)
 TrikiTriki=np.zeros((3,3))
 
 def inicio():
-    presentar=pygame.image.load('D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/Inicio.png')
+    presentar=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/Inicio.png")
     pantalla.blit(presentar,(0,0))
     pygame.display.update()
-    time.sleep(5)
+    time.sleep(2)
 
 def menu():
-    menu=pygame.image.load("D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/Menu.png")
+    menu=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/Menu.png")
     pantalla.blit(menu,(0,0))
     pygame.display.update()
     while True:
@@ -45,7 +45,7 @@ def menu():
         pygame.display.update()
 
 def jugar(turno):
-    jugar=pygame.image.load("D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/Game.png")
+    jugar=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/Game.png")
     pantalla.blit(jugar,(0,0))
     pygame.display.update() 
     while(True):
@@ -81,12 +81,12 @@ def marcar(ini,turno,pos):
         if(turno == "x"):
             TrikiTriki[pos[0]][pos[1]]=1
             print(TrikiTriki)
-            marca=pygame.image.load("D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/equis.png")
+            marca=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/equis.png")
             turno="o"
         elif(turno=="o"):
             TrikiTriki[pos[0]][pos[1]]=2
             print(TrikiTriki)
-            marca=pygame.image.load("D:/Documentos/UTP/compu grafica/trikitriki/Triki/Imagenes/circulo.png")
+            marca=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/circulo.png")
             turno="x"
         pantalla.blit(marca,(ini[0],ini[1]))
         pygame.display.update()
@@ -94,34 +94,31 @@ def marcar(ini,turno,pos):
     else:
          print("ya tiene una marca dibujada")
     return turno      
+
+def RetornoMenu():
+    print("gano")
+    TrikiTriki[:,:]=0
+    menu()
+
 def validarJuego():
-    cruzIzquierda=0
-    Lado=0
     for i in range(3):
-        if(TrikiTriki[i][i]>0):
-            cruzIzquierda+=1
-        if(cruzIzquierda==3):
+        if((TrikiTriki[i][0]==TrikiTriki[i][1] and TrikiTriki[i][2]==TrikiTriki[i][1] and TrikiTriki[i][0]!=0)
+        or (TrikiTriki[0][i]==TrikiTriki[1][i] and TrikiTriki[2][i]==TrikiTriki[1][i] and TrikiTriki[0][i]!=0)
+        or (i+1<3 and TrikiTriki[i][i]==TrikiTriki[i+1][i+1] and TrikiTriki[i][i]== TrikiTriki[2][2] and 
+            TrikiTriki[i][i]!=0)
+        or(i==2 and TrikiTriki[i][0]==TrikiTriki[0][i] and TrikiTriki[1][1]==TrikiTriki[i][0] 
+            and TrikiTriki[i][0]!=0)):
             print("gano")
-            cruzIzquierda=0
-            TrikiTriki[:,:]=0
-    
-    for j in range (3):
-        if(TrikiTriki[0][j]==1):
-            Lado+=1
-            print("x= ",Lado)
-    '''    elif(TrikiTriki[1][j]==1):
-            Lado+=1 
-            print("x= ",Lado)
-        elif(TrikiTriki[2][j]==1):
-            Lado+=1    
-            print("x= ",Lado) '''
-    if(Lado==3):
-            print("gano")
-            Lado=0
+            RetornoMenu()
+        elif(np.all(TrikiTriki[:,:])>0):
+            print("empato")
+            RetornoMenu()
+
+   
+  
+
               
-inicio()   
-menu()
-#jugar("x")
+#inicio()   
+#menu()
+jugar("x")
 #validarJuego()
-
-
