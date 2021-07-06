@@ -14,13 +14,13 @@ Azul=(0,255,0)
 TrikiTriki=np.zeros((3,3))
 
 def inicio():
-    presentar=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/Inicio.png")
+    presentar=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/Inicio.png")
     pantalla.blit(presentar,(0,0))
     pygame.display.update()
     time.sleep(2)
 
 def menu():
-    menu=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/Menu.png")
+    menu=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/Menu.png")
     pantalla.blit(menu,(0,0))
     pygame.display.update()
     while True:
@@ -45,7 +45,7 @@ def menu():
         pygame.display.update()
 
 def jugar(turno):
-    jugar=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/Game.png")
+    jugar=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/Game.png")
     pantalla.blit(jugar,(0,0))
     pygame.display.update() 
     while(True):
@@ -81,12 +81,12 @@ def marcar(ini,turno,pos):
         if(turno == "x"):
             TrikiTriki[pos[0]][pos[1]]=1
             print(TrikiTriki)
-            marca=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/equis.png")
+            marca=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/equis.png")
             turno="o"
         elif(turno=="o"):
             TrikiTriki[pos[0]][pos[1]]=2
             print(TrikiTriki)
-            marca=pygame.image.load("D:/Documentos/UTP/compu grafica/Triki/Imagenes/circulo.png")
+            marca=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/circulo.png")
             turno="x"
         pantalla.blit(marca,(ini[0],ini[1]))
         pygame.display.update()
@@ -98,6 +98,7 @@ def marcar(ini,turno,pos):
 def RetornoMenu():
     print("gano")
     TrikiTriki[:,:]=0
+    time.sleep(3)
     menu()
 
 def validarJuego():
