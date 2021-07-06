@@ -17,7 +17,8 @@ def inicio():
     presentar=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/Inicio.png")
     pantalla.blit(presentar,(0,0))
     pygame.display.update()
-    time.sleep(2)
+    time.sleep(1)
+    menu()
 
 def menu():
     menu=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/Menu.png")
@@ -35,8 +36,10 @@ def menu():
                         jugar("x")
                 if (x>=84 and y>= 207 and x<=351 and y<=263):
                     print("help me")
+                    helpMe()
                 if (x>=84 and y>= 281 and x<=351 and y<=338):
                     print("about")
+                    About()
                 if (x>=84 and y>= 356 and x<=351 and y<=414):
                     print("quit")
                     exit()
@@ -98,7 +101,7 @@ def marcar(ini,turno,pos):
 def RetornoMenu():
     print("gano")
     TrikiTriki[:,:]=0
-    time.sleep(3)
+    time.sleep(1)
     menu()
 
 def validarJuego():
@@ -115,11 +118,25 @@ def validarJuego():
             print("empato")
             RetornoMenu()
 
-   
-  
+def helpMe():
+    advice=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/Advice.png")
+    pantalla.blit(advice,(0,0))
+    pygame.display.update()
+    while(True):
+        for eventos in pygame.event.get():
+            if eventos.type == pygame.QUIT:
+                TrikiTriki[:,:]=0
+                menu()
+def About():
+    about=pygame.image.load("D:/Usuario/Documentos/Eduardo/Utp/semestre 5/computacion grafica/parte3/Triki-Triki/Imagenes/About.png")
+    pantalla.blit(about,(0,0))
+    pygame.display.update()
+    while(True):
+        for eventos in pygame.event.get():
+            if eventos.type == pygame.QUIT:
+                TrikiTriki[:,:]=0
+                menu()
 
-              
-#inicio()   
-#menu()
-jugar("x")
-#validarJuego()
+inicio()   
+
+
